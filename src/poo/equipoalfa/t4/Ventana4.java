@@ -36,8 +36,9 @@ public class Ventana4 extends JFrame implements ActionListener {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    getToolkit().beep(); //sonido
                     e.consume();  // ignore event
-                }
+                }                 
             }
         });    
         txtNombreCliente = new JTextField();

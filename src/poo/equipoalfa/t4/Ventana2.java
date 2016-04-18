@@ -38,6 +38,7 @@ public class Ventana2 extends JFrame implements ActionListener {
                 char c = e.getKeyChar();
                 if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
                     e.consume();  // ignore event
+                    getToolkit().beep(); //sonido
                 }
             }
         });        
@@ -48,6 +49,7 @@ public class Ventana2 extends JFrame implements ActionListener {
                 char c = e.getKeyChar();
                 if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
                     e.consume();  // ignore event
+                    getToolkit().beep(); //sonido
                 }
             }
         });
@@ -59,6 +61,7 @@ public class Ventana2 extends JFrame implements ActionListener {
                 char c = e.getKeyChar();
                 if ((((c < '0') || (c > '9')) && ((c != '.') && (c != ','))) && (c != KeyEvent.VK_BACK_SPACE)) {
                     e.consume();  // ignore event
+                    getToolkit().beep(); //sonido
                 }
             }
         });
