@@ -6,9 +6,7 @@
 package poo.equipoalfa.t4;
 
 import javax.swing.*;
-import javax.swing.text.*;
 import java.awt.event.*;
-import java.text.NumberFormat;
 /**
  *
  * @author jesus_ignacio_159, osilru
@@ -18,7 +16,7 @@ public class Ventana3 extends JFrame implements ActionListener {
     
     //Declaramos las propiedades
     private JButton btnAceptar, btnCancelar;    
-    private JFormattedTextField txtIDTarjeta, txtCantidad;
+    private JTextField txtIDTarjeta, txtCantidad;
 
     //Constructor
     public Ventana3() {
@@ -33,9 +31,26 @@ public class Ventana3 extends JFrame implements ActionListener {
         
         //Paso 3. Vamos a crear un campo de texto
         //JFormattedTextField que limita el que solo se pueda escribir hast aun número de 20 dígitos
-        txtIDTarjeta = new JFormattedTextField(createFormatter("####################"));
-        //JFormatedTextField que solo permite numeros y coma
-        txtCantidad = new JFormattedTextField(createAuxFormatter("********************"));
+        //JTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
+        txtIDTarjeta = new JTextField();
+        txtIDTarjeta.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();  // ignore event
+                }
+            }
+        });
+        //JTextField que solo permite numeros, punto y coma
+        txtCantidad = new JTextField();
+        txtCantidad.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if ((((c < '0') || (c > '9')) && ((c != '.') && (c != ','))) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();  // ignore event
+                }
+            }
+        });
         
         //Paso 4. Vamos a crear un botón.
         btnAceptar = new JButton("Aceptar");
@@ -73,31 +88,6 @@ public class Ventana3 extends JFrame implements ActionListener {
 
     private void salir() {
         dispose();
-    }
-    
-    // Código para verificar que se agrege un MaskFormatter correcto que solo permita números, . y ,
-    private MaskFormatter createAuxFormatter(String s) {
-        MaskFormatter formatter = null;
-        try {
-            formatter = new MaskFormatter(s);
-            formatter.setValidCharacters("0123456789.,");
-        } catch (java.text.ParseException exc) {
-            System.err.println("formatter is bad: " + exc.getMessage());
-            System.exit(-1);
-        }
-        return formatter;
-    }
-    
-        // Código para verificar que se agrege un MaskFormatter correcto
-    private MaskFormatter createFormatter(String s) {
-        MaskFormatter formatter = null;
-        try {
-            formatter = new MaskFormatter(s);
-        } catch (java.text.ParseException exc) {
-            System.err.println("formatter is bad: " + exc.getMessage());
-            System.exit(-1);
-        }
-        return formatter;
     }
     
     @Override
