@@ -6,7 +6,6 @@
 package poo.equipoalfa.t4;
 
 import javax.swing.*;
-import javax.swing.text.*;
 import java.awt.event.*;
 /**
  *
@@ -17,8 +16,7 @@ public class Ventana4 extends JFrame implements ActionListener {
     
     //Declaramos las propiedades
     private JButton btnAceptar, btnCancelar;    
-    private JFormattedTextField txtIDTarjeta; 
-    private JTextField txtNombreCliente,txtSaldo;
+    private JTextField txtIDTarjeta,txtNombreCliente,txtSaldo;
 
     //Constructor
     public Ventana4() {
@@ -33,8 +31,15 @@ public class Ventana4 extends JFrame implements ActionListener {
         JLabel lblSaldo = new JLabel("Saldo:");
         
         //Paso 3. Vamos a crear un campo de texto
-        //JFormattedTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
-        txtIDTarjeta = new JFormattedTextField(createFormatter("####################"));
+        txtIDTarjeta = new JTextField();
+        txtIDTarjeta.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();  // ignore event
+                }
+            }
+        });    
         txtNombreCliente = new JTextField();
         txtSaldo = new JTextField();
         txtNombreCliente.setEditable(false);
@@ -80,18 +85,6 @@ public class Ventana4 extends JFrame implements ActionListener {
 
     private void salir() {
         dispose();
-    }
-        
-        // Código para verificar que se agrege un MaskFormatter correcto
-    private MaskFormatter createFormatter(String s) {
-        MaskFormatter formatter = null;
-        try {
-            formatter = new MaskFormatter(s);
-        } catch (java.text.ParseException exc) {
-            System.err.println("formatter is bad: " + exc.getMessage());
-            System.exit(-1);
-        }
-        return formatter;
     }
     
     @Override
