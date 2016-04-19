@@ -18,17 +18,7 @@ public class Cliente {
 //    private String email;    
 //    private String MonederoElectronico;
 //    private Long idTarjeta;
-//    
-//    public Cliente (){
-//        
-//    }
-//    
-//    //Constructor
-//    public Cliente (int id_cliente, String Nombre){
-//    this.id_cliente=id_cliente;
-//    this.Nombre=Nombre;
-//    }    
-//    
+
     //Método que hace la conexión con el GUI. Debe devolver si se pudo agregar o no el cliente.
     public static boolean agregarCliente(String nombreDeCliente, String email, String telefono, String IDTarjeta) {
         return agregarATablaCliente(nombreDeCliente, email, telefono, IDTarjeta);
@@ -38,6 +28,12 @@ public class Cliente {
     // facilitar el hacer cambios a este método en específico). Deberá devolver TRUE si lo pudo agregar, FALSE en caso contrario)
     private static boolean agregarATablaCliente(String nombreDeCliente, String email, String telefono, String IDTarjeta){
         throw new UnsupportedOperationException("Falta la conexión con la base de Datos");
+    }
+    
+    // Método que regresa el nombre del cliente que posee cierto No. de Tarjeta.
+    // Regresa Null si no encontró a un cliente con esa tarjeta
+    protected static String obtenerNombreClienteConMonedero(String IDTarjeta){
+        throw new UnsupportedOperationException("Falta el método que saque el Nombre del Cliente de la Base de Datos");
     }
     
 }

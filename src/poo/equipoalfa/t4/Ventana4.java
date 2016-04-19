@@ -94,15 +94,15 @@ public class Ventana4 extends JFrame implements ActionListener {
             String IDTarjeta = txtIDTarjeta.getText();
             String[] datosTarjeta;
 
-//            // Método que devuelve un arreglo de Strings con los datos que encontró en la base de datos
-//            datosTarjeta = MonederoElectronico.getSaldo(IDTarjeta);            
-//                    
-//            if (datosTarjeta == null) {
-//                JOptionPane.showMessageDialog(null, "No se ha encontrado la Tarjeta", "Advertencia", 0);
-//            } else {
-//                txtNombreCliente.setText(datosTarjeta[0]);
-//                txtSaldo.setText(datosTarjeta[1]);
-//            }
+            // Método que devuelve un arreglo de Strings con los datos que encontró en la base de datos
+            datosTarjeta = MonederoElectronico.informacionTarjeta(IDTarjeta);            
+                    
+            if (datosTarjeta == null) {
+                JOptionPane.showMessageDialog(null, "No se ha encontrado la Tarjeta", "Advertencia", 0);
+            } else {
+                txtNombreCliente.setText(datosTarjeta[0]);
+                txtSaldo.setText(datosTarjeta[1]);
+            }
         } else {
             salir();
         }

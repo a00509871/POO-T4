@@ -19,14 +19,18 @@ public class MonederoElectronico {
 //    private double saldo;
 
     public static boolean pago(String IDTarjeta, String cantidad) {
-        double monto = Double.parseDouble(cantidad);
-        if (monto > 0) {
-            return modificarSaldoDeTablaMonedero(IDTarjeta, obtenerSaldoDeTablaMonedero(IDTarjeta) + monto);
-        } else {
-            return false;
-        }                        
+//        if (cantidad.equalsIgnoreCase(".") || cantidad.equalsIgnoreCase(cantidad)) {
+//            return false;
+//        } else {
+            double monto = Double.parseDouble(cantidad);
+            if (monto > 0) {
+                return modificarSaldoDeTablaMonedero(IDTarjeta, obtenerSaldoDeTablaMonedero(IDTarjeta) + monto);
+            } else {
+                return false;
+            }
+//        }
     }
-    
+
     
     protected static boolean cargoATarjeta(String IDTarjeta, double cargo) {
         // Debe sacar el saldo que tenga tal ID        
@@ -42,6 +46,25 @@ public class MonederoElectronico {
         }
     }
     
+    // Devolverá un Arreglo de Strings doble. Regresará Null en caso de no haber encontrado dicha tarjeta.
+    public static String[] informacionTarjeta(String IDTarjeta) {        
+        double saldo = obtenerSaldoDeTablaMonedero(IDTarjeta);
+        if (saldo<0){
+            return null;
+        } else{
+            String[] informacion = new String[2];
+            String nombreCliente = Cliente.obtenerNombreClienteConMonedero(IDTarjeta);
+            if(nombreCliente == null){
+                nombreCliente = "=TARJETA SIN CLIENTE ASIGNADO=";
+            }            
+            informacion[0] = nombreCliente;
+            informacion[1] = Double.toString(saldo);
+            
+            return informacion;
+        }
+    }
+    
+    
     // Obtiene el Saldo que hay en el monedero. En caso de no existir en la base de datos, regresa un número negativo
     private static double obtenerSaldoDeTablaMonedero(String IDTarjeta){        
         throw new UnsupportedOperationException("Falta el método que saque el saldo de la Base de Datos");
@@ -51,4 +74,6 @@ public class MonederoElectronico {
     private static boolean modificarSaldoDeTablaMonedero(String IDTarjeta, double monto) {
         throw new UnsupportedOperationException("Falta el Método  que modifique el saldo"); //To change body of generated methods, choose Tools | Templates.
     }
+    
+
 }
