@@ -35,7 +35,7 @@ public class Ventana1 extends JFrame implements ActionListener {
         txtNombre = new JTextField();
         txtEmail = new JTextField();
         txtTelefono = new JTextField();
-        //JTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
+        //JTextField que limita el que solo se puedan escribir números
         txtIDTarjeta = new JTextField();
         txtIDTarjeta.addKeyListener(new KeyAdapter() {
             @Override
@@ -93,7 +93,6 @@ public class Ventana1 extends JFrame implements ActionListener {
     private void salir() {
         dispose();
     }
-
     
     @Override
     public void actionPerformed(ActionEvent e) {

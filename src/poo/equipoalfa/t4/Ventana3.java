@@ -30,8 +30,7 @@ public class Ventana3 extends JFrame implements ActionListener {
         JLabel lblCantidad = new JLabel("Cantidad:");
         
         //Paso 3. Vamos a crear un campo de texto
-        //JFormattedTextField que limita el que solo se pueda escribir hast aun número de 20 dígitos
-        //JTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
+        //JTextField que limita el que solo se puedan escribir numeros
         txtIDTarjeta = new JTextField();
         txtIDTarjeta.addKeyListener(new KeyAdapter() {
             @Override

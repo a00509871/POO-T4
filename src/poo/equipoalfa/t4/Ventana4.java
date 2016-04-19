@@ -31,6 +31,7 @@ public class Ventana4 extends JFrame implements ActionListener {
         JLabel lblSaldo = new JLabel("Saldo:");
         
         //Paso 3. Vamos a crear un campo de texto
+        // JTextfield que solo permite escribir numeros
         txtIDTarjeta = new JTextField();
         txtIDTarjeta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
