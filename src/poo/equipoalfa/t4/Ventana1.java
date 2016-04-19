@@ -38,6 +38,7 @@ public class Ventana1 extends JFrame implements ActionListener {
         //JTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
         txtIDTarjeta = new JTextField();
         txtIDTarjeta.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {

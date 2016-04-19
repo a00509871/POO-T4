@@ -34,6 +34,7 @@ public class Ventana3 extends JFrame implements ActionListener {
         //JTextField que limita el que solo se pueda escribir hast aun número de 20 dígito
         txtIDTarjeta = new JTextField();
         txtIDTarjeta.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
@@ -45,9 +46,13 @@ public class Ventana3 extends JFrame implements ActionListener {
         //JTextField que solo permite numeros, punto y coma
         txtCantidad = new JTextField();
         txtCantidad.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if ((((c < '0') || (c > '9')) && ((c != '.') && (c != ','))) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();  // ignore event
+                    getToolkit().beep(); //sonido
+                } else if (txtCantidad.getText()!= null && (txtCantidad.getText().contains(".") ||txtCantidad.getText().contains(","))){
                     e.consume();  // ignore event
                     getToolkit().beep(); //sonido
                 }
