@@ -13,14 +13,7 @@ public class POOEquipoAlfaT4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        //Monedero Electronico
-        MonederoElectronico monederoElectronico = new MonederoElectronico(1);
-        Cliente cliente = new Cliente();
-        Bitacora bitacora = new Bitacora();
-        Transferencia transferencia = new Transferencia();
-        
+    public static void main(String[] args) {        
         //Swing
         Menu menu = new Menu();
     }
