@@ -4,76 +4,40 @@
  * and open the template in the editor.
  */
 package poo.equipoalfa.t4;
-import java.util.*;
 
 /**
  *
- * @author 
+ * @author osilru
  */
 public class Cliente {
-
     
+    //Como usaremos una base de datos 
     //Atributos
-    protected int id_cliente;
-    protected String Nombre;
-    protected String email;
-    protected Bitacora bitacora;
-    protected MonederoElectronico MonederoElectronico;
-    protected String CincoMovimientos;
-    protected String descripcion;
-    
-    public Cliente (){
-        
-    }
-    
-    //Constructor
-    public Cliente (int id_cliente, String Nombre){
-    this.id_cliente=id_cliente;
-    this.Nombre=Nombre;
-    }
-    public Cliente (int id_cliente, String Nombre, String email){
-    this.id_cliente=id_cliente;
-    this.Nombre=Nombre;
-    this.email=email;
-    }
-    public Cliente (int id_cliente, String Nombre, String email, MonederoElectronico MonederoElectronico){
-    this.id_cliente=id_cliente;
-    this.Nombre=Nombre;
-    this.email=email; 
-    this.MonederoElectronico= MonederoElectronico;
-    }
-    
-    public void mostrarUlltimos5Movimientos (List listaDeTransferencias){
-      for(int i=0;i<4;i++){
-    System.out.println(listaDeTransferencias.get(i));
-} 
-        }
-    
-    public void mostrarTodosLosMovimientos (List listaDeTransferencias){
-      for(int i=0;i<listaDeTransferencias.size();i++){
-    System.out.println(listaDeTransferencias.get(i));
-} 
-        }
-    public Bitacora getBitacora(){
-        return this.bitacora;
-    }
-    public int getIDCliente(){
-        return this.id_cliente;
-    }
-    public String getNombre(){
-        return this.Nombre;
-    }
-    public String getEmail(){
-        return this.email;
-    }
-    public String descripcionCliente(){
-        descripcion = (" "+this.id_cliente+" "+this.Nombre+" "+this.email);
-        return descripcion;
-    }
-    
+//    private Long id_cliente;
+//    private String Nombre;
+//    private String email;    
+//    private String MonederoElectronico;
+//    private Long idTarjeta;
+//    
+//    public Cliente (){
+//        
+//    }
+//    
+//    //Constructor
+//    public Cliente (int id_cliente, String Nombre){
+//    this.id_cliente=id_cliente;
+//    this.Nombre=Nombre;
+//    }    
+//    
     //Método que hace la conexión con el GUI. Debe devolver si se pudo agregar o no el cliente.
-    static boolean agregarCliente(String nombreDeCliente, String email, String telefono, String IDTarjeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static boolean agregarCliente(String nombreDeCliente, String email, String telefono, String IDTarjeta) {
+        return agregarATablaCliente(nombreDeCliente, email, telefono, IDTarjeta);
+    }
+    
+    // Método que conecta con la base de datos o con un archivo (se dejó en un método a parte para poder
+    // facilitar el hacer cambios a este método en específico). Deberá devolver TRUE si lo pudo agregar, FALSE en caso contrario)
+    private static boolean agregarATablaCliente(String nombreDeCliente, String email, String telefono, String IDTarjeta){
+        throw new UnsupportedOperationException("Falta la conexión con la base de Datos");
     }
     
 }

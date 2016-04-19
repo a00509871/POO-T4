@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.event.*;
 /**
  *
- * @author jesus_ignacio_159, osilru
+ * @author  osilru
  */
 public class Ventana4 extends JFrame implements ActionListener {
     

@@ -6,7 +6,7 @@
 package poo.equipoalfa.t4;
 /**
  *
- * @author jesus_ignacio_159
+ * @author osilru
  */
 public class POOEquipoAlfaT4 {
 

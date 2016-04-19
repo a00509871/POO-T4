@@ -8,7 +8,7 @@ package poo.equipoalfa.t4;
 /**
  * Esta clase representa una transferencia, transacción o movimiento
  * del monedero electrónico
-* @author
+* @author osilru
  */
 public class Transferencia {
     

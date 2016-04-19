@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.event.*;
 /**
  *
- * @author jesus_ignacio_159, osilru
+ * @author osilru
  */
 public class Ventana2 extends JFrame implements ActionListener {
     
@@ -116,12 +116,12 @@ public class Ventana2 extends JFrame implements ActionListener {
             String cantidad = txtCantidad.getText();            
 
         // Similar a Ventana 1, en el if debería ir el argumento que checa lo que 
-//            if (Bitacora.registrarCompra(IDTarjeta, ticket, cantidad){
-//                JOptionPane.showMessageDialog(null, "Se ha registrado con éxito", "", -1);
-//                salir();
-//            } else{
-//                JOptionPane.showMessageDialog(null, "No se ha podido registrar", "Advertencia", 0);                
-//            }
+            if (Bitacora.registrarCompra(IDTarjeta, ticket, cantidad)){
+                JOptionPane.showMessageDialog(null, "Se ha registrado con éxito", "", -1);
+                salir();
+            } else{
+                JOptionPane.showMessageDialog(null, "No se ha podido registrar", "Advertencia", 0);                
+            }
         } else {
             salir();
         }

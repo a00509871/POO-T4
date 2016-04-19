@@ -10,7 +10,7 @@ package poo.equipoalfa.t4;
  * Esta clase representará la tarjeta, el monedero electronico. Puede crearse un
  * monedero electrónico con un cliente asociado o sin cliente.
  *
- * @author
+ * @author osilru
  */
 public class MonederoElectronico {
     
