@@ -19,16 +19,16 @@ public class MonederoElectronico {
 //    private double saldo;
 
     public static boolean pago(String IDTarjeta, String cantidad) {
-//        if (cantidad.equalsIgnoreCase(".") || cantidad.equalsIgnoreCase(cantidad)) {
-//            return false;
-//        } else {
+        if (cantidad.equalsIgnoreCase(".") || cantidad.equalsIgnoreCase(cantidad)) {
+            return false;
+        } else {
             double monto = Double.parseDouble(cantidad);
             if (monto > 0) {
                 return modificarSaldoDeTablaMonedero(IDTarjeta, obtenerSaldoDeTablaMonedero(IDTarjeta) + monto);
             } else {
                 return false;
             }
-//        }
+        }
     }
 
     

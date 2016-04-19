@@ -5,9 +5,6 @@
  */
 package poo.equipoalfa.t4;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Clase que almacenará todas las transferencias o transacciones de la tienda
  * @author osilru
@@ -16,7 +13,11 @@ import java.util.List;
 public class Bitacora {
 
     public static boolean registrarCompra(String IDTarjeta, String ticket, String cantidad) {
-        return registrarCompraALista(IDTarjeta, ticket, cantidad);
+        if (cantidad.equalsIgnoreCase(",") || cantidad.equalsIgnoreCase(".")) {
+            return false;
+        } else {
+            return registrarCompraALista(IDTarjeta, ticket, cantidad);
+        }
     }
     
     private static boolean registrarCompraALista(String IDTarjeta, String ticket, String cantidad){                
